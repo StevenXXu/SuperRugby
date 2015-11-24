@@ -132,7 +132,9 @@ interData <- interData[order(interData$dates),]
 interData <- interData[!duplicated(interData),]
 
 # remove corresponding weights
-weights <- weights[-ties]
+if(!is.null(ties))
+    weights <- weights[-ties]
+
 if (!is.null(remove))
     weights <- weights[-remove]
 
@@ -147,25 +149,25 @@ interData$month <- month
 interData$year <- year
 
 
-dataIndex <- NULL 
-for(i in 1:length(teams)){
-  done <- 1
-  team <- teams[i]
-  count <- nrow(interData)
-  while(done < 17){
-    if(interData[count,2] == team || interData[count,3] == team){
-      if(!(count %in% dataIndex)){
-        dataIndex <- c(dataIndex, count)
-        done <- done + 1
-      }
-    }
-    count <- count-1
-  }
-}
+#dataIndex <- NULL 
+#for(i in 1:length(teams)){
+#  done <- 1
+#  team <- teams[i]
+#  count <- nrow(interData)
+#  while(done < 17){
+#    if(interData[count,2] == team || interData[count,3] == team){
+#      if(!(count %in% dataIndex)){
+#        dataIndex <- c(dataIndex, count)
+#        done <- done + 1
+#      }
+#    }
+#    count <- count-1
+#  }
+#}
 
-interData <- interData[dataIndex,]
-interData <- interData[order(interData$dates),]
-interData <- interData[,-4]
+#interData <- interData[dataIndex,]
+#interData <- interData[order(interData$dates),]
+#interData <- interData[,-4]
 
 # Only select matches as far back as the previous world cup
 #weights <- weights[interData$year > 2010]
@@ -173,8 +175,8 @@ interData <- interData[,-4]
 
 
 # Add remaining variables
-homeMat <- matrix(0, nrow=nrow(interData), ncol=24)
-awayMat <- matrix(0, nrow=nrow(interData), ncol=24)
+homeMat <- matrix(0, nrow=nrow(interData), ncol=23)
+awayMat <- matrix(0, nrow=nrow(interData), ncol=23)
 
 for(i in 1:nrow(interData)){
   homeIndex <- which(teams == interData[i,2])
@@ -202,7 +204,7 @@ dataColNames <- c("Outcome", "HomeTeam", "AwayTeam",
                   "AvgPointsForHome",
                   "TotalPointsAgainstHome", "AvgPointsAgainstHome", 
                   "TotalPointsDifferenceHome", "AvgPointsDifferenceHome",
-                  "RankHome", "RankScoreHome", "RankChangeHome",
+                  "RankHome", "RankScoreHome",
                   "GamesPlayedAway", "GamesWon Away", "GamesLostAway",
                   "GamesDrawnAway", "LongestWinning StreakAway",
                   "LongestLosingStreakAway",
@@ -216,7 +218,7 @@ dataColNames <- c("Outcome", "HomeTeam", "AwayTeam",
                   "AvgPointsForAway",
                   "TotalPointsAgainstAway", "AvgPointsAgainstAway", 
                   "TotalPointsDifferenceAway", "AvgPointsDifferenceAway",
-                  "RankAway", "RankScoreAway", "RankChangeAway")
+                  "RankAway", "RankScoreAway")
 
 colnames(data) <- dataColNames
 data$month <- factor(data$month)
