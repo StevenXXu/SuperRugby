@@ -10,33 +10,33 @@ model <- readRDS(file = "RWC_Prediction_Model.rda")
 teamStats <- readRDS(file="teamStats.rda")
 rank <- readRDS("rank.rda")
 rankScore <- readRDS("rankScore.rda")
-rankChange <- readRDS("rankChange.rda")
+#rankChange <- readRDS("rankChange.rda")
 teams <- readRDS("teamNames.rda")
 
 ## Create a function to take team name inputs
 ## and then return a prediction for the match
-predict_match <- function(homeTeam, awayTeam) {
+predict_match <- function(homeTeam, awayTeam, month, year) {
   
   homeIndex <- which(teams == homeTeam)
   awayIndex <- which(teams == awayTeam) 
   
-  swap <- awayTeam == "England"
+ swap <- awayTeam == "England"
   
-  if(swap){
+ if(swap){
     
-    temp <- homeTeam
-    homeTeam <- awayTeam
-    awayTeam <- temp
+   temp <- homeTeam
+   homeTeam <- awayTeam
+   awayTeam <- temp
     
-    temp <- homeIndex
-    homeIndex <- awayIndex
-    awayIndex <- temp
+   temp <- homeIndex
+   homeIndex <- awayIndex
+   awayIndex <- temp
     
-  }
+ }
   
   
-  homeTeamStats <- c(teamStats[[homeIndex]], rank[homeIndex], rankScore[homeIndex], rankChange[homeIndex])
-  awayTeamStats <- c(teamStats[[awayIndex]], rank[awayIndex], rankScore[awayIndex], rankChange[awayIndex])
+  homeTeamStats <- c(teamStats[[homeIndex]], rank[homeIndex], rankScore[homeIndex])
+  awayTeamStats <- c(teamStats[[awayIndex]], rank[awayIndex], rankScore[awayIndex])
   
   date <- Sys.Date()
   levelsx <- levels(factor(teams))
@@ -44,10 +44,11 @@ predict_match <- function(homeTeam, awayTeam) {
   newCase <- readRDS("newCase.rda")
   newCase[1,2] <- homeTeam
   newCase[1,3] <- awayTeam
-  newCase[1,4] <- factor(month(date))
-  newCase[1,5] <- factor(year(date))
-  newCase[1,6:29] <- homeTeamStats
-  newCase[1,30:53] <- awayTeamStats
+  newCase[1,4] <- date
+  newCase[1,5] <- factor(month)
+  newCase[1,6] <- factor(year)
+  newCase[1,7:29] <- homeTeamStats
+  newCase[1,30:52] <- awayTeamStats
   
   
   ## Use the model for prediction
@@ -67,8 +68,8 @@ predict_match <- function(homeTeam, awayTeam) {
     homeIndex <- awayIndex
     awayIndex <- temp
     
-    homeTeamStats <- c(teamStats[[homeIndex]], rank[homeIndex], rankScore[homeIndex], rankChange[homeIndex])
-    awayTeamStats <- c(teamStats[[awayIndex]], rank[awayIndex], rankScore[awayIndex], rankChange[awayIndex])
+    homeTeamStats <- c(teamStats[[homeIndex]], rank[homeIndex], rankScore[homeIndex])
+    awayTeamStats <- c(teamStats[[awayIndex]], rank[awayIndex], rankScore[awayIndex])
     
     date <- Sys.Date()
     levelsx <- levels(factor(teams))
@@ -76,10 +77,11 @@ predict_match <- function(homeTeam, awayTeam) {
     newCase <- readRDS("newCase.rda")
     newCase[1,2] <- homeTeam
     newCase[1,3] <- awayTeam
-    newCase[1,4] <- factor(month(date))
-    newCase[1,5] <- factor(year(date))
-    newCase[1,6:29] <- homeTeamStats
-    newCase[1,30:53] <- awayTeamStats
+    newCase[1,4] <- date
+    newCase[1,5] <- factor(month)
+    newCase[1,6] <- factor(year)
+    newCase[1,7:29] <- homeTeamStats
+    newCase[1,30:52] <- awayTeamStats
     
     y_probs2 <- predict(model, newCase, type="prob")
     looseProb <- round((y_probs1[1] + y_probs2[2])/2,4)

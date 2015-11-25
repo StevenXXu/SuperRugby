@@ -170,8 +170,8 @@ interData$year <- year
 #interData <- interData[,-4]
 
 # Only select matches as far back as the previous world cup
-#weights <- weights[interData$year > 2010]
-#interData <- interData[interData$year > 2010,]
+weights <- weights[interData$year > 2000]
+interData <- interData[interData$year > 2000,]
 
 
 # Add remaining variables
@@ -190,7 +190,7 @@ extraData <- data.frame(cbind(homeMat, awayMat))
 data <- data.frame(interData, extraData)
 
 dataColNames <- c("Outcome", "HomeTeam", "AwayTeam",
-                  "month", "year",
+                  "date","month", "year",
                   "GamesPlayedHome", "GamesWonHome", "GamesLostHome",
                   "GamesDrawnHome", "LongestWinningStreakHome",
                   "LongestLosingStreak Home",
