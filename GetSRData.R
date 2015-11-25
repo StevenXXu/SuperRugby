@@ -170,8 +170,8 @@ interData$year <- year
 #interData <- interData[,-4]
 
 # Only select matches as far back as the previous world cup
-weights <- weights[interData$year > 2000]
-interData <- interData[interData$year > 2000,]
+weights <- weights[interData$year > 2005]
+interData <- interData[interData$year > 2005,]
 
 
 # Add remaining variables
