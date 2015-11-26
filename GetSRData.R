@@ -170,8 +170,8 @@ interData$year <- year
 #interData <- interData[,-4]
 
 # Only select matches as far back as the previous world cup
-weights <- weights[interData$year > 2005]
-interData <- interData[interData$year > 2005,]
+#weights <- weights[interData$year > 2013]
+#interData <- interData[interData$year > 2013,]
 
 
 # Add remaining variables
@@ -193,7 +193,7 @@ dataColNames <- c("Outcome", "HomeTeam", "AwayTeam",
                   "date","month", "year",
                   "GamesPlayedHome", "GamesWonHome", "GamesLostHome",
                   "GamesDrawnHome", "LongestWinningStreakHome",
-                  "LongestLosingStreak Home",
+                  "LongestLosingStreakHome",
                   "TeamsPlayedHome", "TeamsBeatenHome", 
                   "TeamsBeatenByHome",
                   "TeamsDrawnWithHome", "GroundsPlayedAtHome", 
@@ -205,8 +205,8 @@ dataColNames <- c("Outcome", "HomeTeam", "AwayTeam",
                   "TotalPointsAgainstHome", "AvgPointsAgainstHome", 
                   "TotalPointsDifferenceHome", "AvgPointsDifferenceHome",
                   "RankHome", "RankScoreHome",
-                  "GamesPlayedAway", "GamesWon Away", "GamesLostAway",
-                  "GamesDrawnAway", "LongestWinning StreakAway",
+                  "GamesPlayedAway", "GamesWonAway", "GamesLostAway",
+                  "GamesDrawnAway", "LongestWinningStreakAway",
                   "LongestLosingStreakAway",
                   "TeamsPlayedAway", "TeamsBeatenAway", 
                   "TeamsBeatenByAway",
