@@ -1,0 +1,191 @@
+Outcome,HomeTeam,AwayTeam,Date,Month,Year,,
+loose,Brisbane,South Sydney,5/03/2015,3,2014,loose,1
+win,Parramatta,Manly Warringah,6/03/2015,3,2014,loose,0
+loose,Gold Coast Titans,Wests Tigers,7/03/2015,3,2014,win,0
+win,Newcastle,Warriors,7/03/2015,3,2014,loose,0
+loose,North Queensland,Sydney,7/03/2015,3,2014,loose,1
+loose,Cronulla,Canberra,8/03/2015,3,2014,loose,1
+win,Penrith,Canterbury,8/03/2015,3,2014,loose,0
+loose,St George Illawarra,Melbourne,9/03/2015,3,2014,win,0
+win,Canterbury,Parramatta,13/03/2015,3,2014,win,1
+loose,Cronulla,Brisbane,13/03/2015,3,2014,win,0
+win,Manly Warringah,Melbourne,14/03/2015,3,2014,tie,0
+loose,North Queensland,Newcastle,14/03/2015,3,2014,win,0
+win,Penrith,Gold Coast Titans,14/03/2015,3,2014,loose,0
+loose,Canberra,Warriors,15/03/2015,3,2014,loose,1
+win,South Sydney,Sydney,15/03/2015,3,2014,win,1
+win,Wests Tigers,St George Illawarra,16/03/2015,3,2014,win,1
+win,Brisbane,North Queensland,20/03/2015,3,2014,loose,0
+loose,Manly Warringah,Canterbury,20/03/2015,3,2014,loose,1
+loose,Canberra,St George Illawarra,21/03/2015,3,2014,loose,1
+win,Melbourne,Cronulla,21/03/2015,3,2014,win,1
+win,Warriors,Parramatta,21/03/2015,3,2014,win,1
+loose,Gold Coast Titans,Newcastle,22/03/2015,3,2014,win,0
+win,South Sydney,Wests Tigers,22/03/2015,3,2014,win,1
+win,Sydney,Penrith,23/03/2015,3,2014,win,1
+win,Parramatta,South Sydney,27/03/2015,3,2014,loose,0
+loose,Wests Tigers,Canterbury,27/03/2015,3,2014,loose,1
+loose,Cronulla,Gold Coast Titans,28/03/2015,3,2014,loose,1
+win,Newcastle,Penrith,28/03/2015,3,2014,tie,0
+win,St George Illawarra,Manly Warringah,28/03/2015,3,2014,win,1
+win,Sydney,Canberra,29/03/2015,3,2014,win,1
+loose,Warriors,Brisbane,29/03/2015,3,2014,win,0
+win,North Queensland,Melbourne,30/03/2015,3,2014,win,1
+loose,Canterbury,South Sydney,3/04/2015,4,2014,loose,1
+loose,Gold Coast Titans,Brisbane,3/04/2015,4,2014,win,0
+loose,Manly Warringah,Canberra,4/04/2015,4,2014,loose,1
+loose,Newcastle,St George Illawarra,4/04/2015,4,2014,loose,1
+win,Melbourne,Warriors,6/04/2015,4,2014,loose,0
+loose,Parramatta,Wests Tigers,6/04/2015,4,2014,loose,1
+loose,Penrith,North Queensland,6/04/2015,4,2014,loose,1
+win,Brisbane,Sydney,10/04/2015,4,2014,loose,0
+win,Cronulla,Newcastle,10/04/2015,4,2014,win,1
+loose,Parramatta,Gold Coast Titans,11/04/2015,4,2014,loose,1
+win,Penrith,Manly Warringah,11/04/2015,4,2014,loose,0
+win,Warriors,Wests Tigers,11/04/2015,4,2014,loose,0
+loose,Canberra,Melbourne,12/04/2015,4,2014,win,0
+win,St George Illawarra,Canterbury,12/04/2015,4,2014,loose,0
+loose,South Sydney,North Queensland,13/04/2015,4,2014,win,0
+win,Canterbury,Manly Warringah,17/04/2015,4,2014,win,1
+win,St George Illawarra,Brisbane,17/04/2015,4,2014,win,1
+win,Gold Coast Titans,Penrith,18/04/2015,4,2014,win,1
+win,Melbourne,Sydney,18/04/2015,4,2014,loose,0
+win,North Queensland,Warriors,18/04/2015,4,2014,loose,0
+loose,Newcastle,Parramatta,19/04/2015,4,2014,win,0
+loose,Wests Tigers,Canberra,19/04/2015,4,2014,win,0
+win,Cronulla,South Sydney,20/04/2015,4,2014,loose,0
+loose,Canterbury,Wests Tigers,24/04/2015,4,2014,win,0
+win,Brisbane,Parramatta,25/04/2015,4,2014,win,1
+loose,Melbourne,Manly Warringah,25/04/2015,4,2014,loose,1
+loose,Newcastle,North Queensland,25/04/2015,4,2014,loose,1
+loose,Sydney,St George Illawarra,25/04/2015,4,2014,win,0
+loose,Warriors,Gold Coast Titans,25/04/2015,4,2014,loose,1
+win,Penrith,Cronulla,26/04/2015,4,2014,loose,0
+loose,South Sydney,Canberra,26/04/2015,4,2014,win,0
+win,Brisbane,Penrith,8/05/2015,5,2014,loose,0
+win,Sydney,Wests Tigers,8/05/2015,5,2014,win,1
+win,Canberra,Gold Coast Titans,9/05/2015,5,2014,loose,0
+loose,Cronulla,Warriors,9/05/2015,5,2014,loose,1
+win,North Queensland,Canterbury,9/05/2015,5,2014,loose,0
+win,Manly Warringah,Newcastle,10/05/2015,5,2014,win,1
+loose,Parramatta,Melbourne,10/05/2015,5,2014,loose,1
+win,South Sydney,St George Illawarra,11/05/2015,5,2014,win,1
+loose,Canterbury,Sydney,15/05/2015,5,2014,loose,1
+win,North Queensland,Brisbane,15/05/2015,5,2014,win,1
+loose,Gold Coast Titans,Cronulla,16/05/2015,5,2014,win,0
+win,Melbourne,South Sydney,16/05/2015,5,2014,loose,0
+loose,Parramatta,Warriors,16/05/2015,5,2014,loose,1
+win,Newcastle,Wests Tigers,17/05/2015,5,2014,loose,0
+win,St George Illawarra,Canberra,17/05/2015,5,2014,win,1
+loose,Manly Warringah,Penrith,18/05/2015,5,2014,win,0
+win,South Sydney,Parramatta,22/05/2015,5,2014,win,1
+loose,Wests Tigers,North Queensland,23/05/2015,5,2014,win,0
+loose,Canberra,Canterbury,24/05/2015,5,2014,loose,1
+loose,Newcastle,Brisbane,25/05/2015,5,2014,win,0
+loose,Penrith,Parramatta,29/05/2015,5,2014,win,0
+loose,Canberra,Brisbane,30/05/2015,5,2014,win,0
+loose,Gold Coast Titans,South Sydney,30/05/2015,5,2014,loose,1
+win,North Queensland,Manly Warringah,30/05/2015,5,2014,win,1
+win,St George Illawarra,Cronulla,31/05/2015,5,2014,win,1
+win,Warriors,Newcastle,31/05/2015,5,2014,win,1
+win,Sydney,Melbourne,1/06/2015,6,2014,win,1
+win,Brisbane,Manly Warringah,5/06/2015,6,2014,loose,0
+loose,Wests Tigers,Gold Coast Titans,5/06/2015,6,2014,loose,1
+loose,Newcastle,Canberra,6/06/2015,6,2014,loose,1
+loose,Penrith,Melbourne,6/06/2015,6,2014,loose,1
+win,South Sydney,Warriors,6/06/2015,6,2014,win,1
+win,Cronulla,Sydney,7/06/2015,6,2014,loose,0
+win,Canterbury,St George Illawarra,8/06/2015,6,2014,win,1
+loose,Parramatta,North Queensland,8/06/2015,6,2014,loose,1
+win,Wests Tigers,South Sydney,12/06/2015,6,2014,loose,0
+loose,Warriors,Sydney,13/06/2015,6,2014,loose,1
+win,Gold Coast Titans,Canterbury,14/06/2015,6,2014,win,1
+loose,Melbourne,Parramatta,15/06/2015,6,2014,win,0
+win,Manly Warringah,Wests Tigers,19/06/2015,6,2014,loose,0
+loose,Canberra,North Queensland,20/06/2015,6,2014,win,0
+win,Canterbury,Penrith,20/06/2015,6,2014,win,1
+loose,Gold Coast Titans,Warriors,20/06/2015,6,2014,win,0
+loose,Newcastle,Cronulla,21/06/2015,6,2014,loose,1
+loose,St George Illawarra,Sydney,22/06/2015,6,2014,loose,1
+win,Brisbane,Newcastle,26/06/2015,6,2014,loose,0
+win,South Sydney,Manly Warringah,26/06/2015,6,2014,win,1
+loose,North Queensland,Cronulla,27/06/2015,6,2014,win,0
+win,Parramatta,St George Illawarra,27/06/2015,6,2014,loose,0
+win,Warriors,Canberra,27/06/2015,6,2014,win,1
+win,Sydney,Gold Coast Titans,28/06/2015,6,2014,win,1
+loose,Wests Tigers,Penrith,28/06/2015,6,2014,win,0
+win,Canterbury,Melbourne,29/06/2015,6,2014,win,1
+win,Penrith,South Sydney,3/07/2015,7,2014,loose,0
+loose,St George Illawarra,North Queensland,4/07/2015,7,2014,win,0
+win,Manly Warringah,Cronulla,5/07/2015,7,2014,win,1
+loose,Wests Tigers,Parramatta,6/07/2015,7,2014,win,0
+win,Canberra,Newcastle,10/07/2015,7,2014,win,1
+loose,Canterbury,Brisbane,11/07/2015,7,2014,win,0
+loose,Penrith,Sydney,11/07/2015,7,2014,loose,1
+win,Cronulla,St George Illawarra,12/07/2015,7,2014,loose,0
+win,Warriors,Melbourne,12/07/2015,7,2014,win,1
+loose,Gold Coast Titans,Manly Warringah,13/07/2015,7,2014,win,0
+win,Melbourne,Penrith,17/07/2015,7,2014,win,1
+loose,Parramatta,Canterbury,17/07/2015,7,2014,loose,1
+loose,Canberra,Cronulla,18/07/2015,7,2014,win,0
+win,Newcastle,Gold Coast Titans,18/07/2015,7,2014,loose,0
+loose,St George Illawarra,South Sydney,18/07/2015,7,2014,loose,1
+win,Brisbane,Wests Tigers,19/07/2015,7,2014,loose,0
+win,Sydney,Warriors,19/07/2015,7,2014,win,1
+loose,Manly Warringah,North Queensland,20/07/2015,7,2014,loose,1
+win,Brisbane,Gold Coast Titans,24/07/2015,7,2014,loose,0
+loose,Wests Tigers,Sydney,24/07/2015,7,2014,loose,1
+win,Melbourne,St George Illawarra,25/07/2015,7,2014,loose,0
+win,South Sydney,Newcastle,25/07/2015,7,2014,win,1
+loose,Warriors,Manly Warringah,25/07/2015,7,2014,win,0
+loose,Canterbury,Cronulla,26/07/2015,7,2014,win,0
+loose,Penrith,Canberra,26/07/2015,7,2014,loose,1
+win,North Queensland,Parramatta,27/07/2015,7,2014,win,1
+win,Sydney,Canterbury,31/07/2015,7,2014,win,1
+win,Wests Tigers,Melbourne,31/07/2015,7,2014,win,1
+win,Manly Warringah,Brisbane,1/08/2015,8,2014,win,1
+win,North Queensland,Canberra,1/08/2015,8,2014,loose,0
+loose,Warriors,Cronulla,1/08/2015,8,2014,win,0
+win,St George Illawarra,Newcastle,2/08/2015,8,2014,win,1
+win,South Sydney,Penrith,2/08/2015,8,2014,win,1
+win,Gold Coast Titans,Parramatta,3/08/2015,8,2014,win,1
+loose,Brisbane,Canterbury,7/08/2015,8,2014,loose,1
+win,Manly Warringah,South Sydney,7/08/2015,8,2014,loose,0
+win,Cronulla,North Queensland,8/08/2015,8,2014,loose,0
+win,Parramatta,Penrith,8/08/2015,8,2014,loose,0
+loose,Warriors,St George Illawarra,8/08/2015,8,2014,win,0
+win,Melbourne,Gold Coast Titans,9/08/2015,8,2014,loose,0
+loose,Newcastle,Sydney,9/08/2015,8,2014,loose,1
+loose,Canberra,Wests Tigers,10/08/2015,8,2014,loose,1
+loose,North Queensland,South Sydney,13/08/2015,8,2014,loose,1
+win,Brisbane,St George Illawarra,14/08/2015,8,2014,loose,0
+win,Penrith,Warriors,15/08/2015,8,2014,loose,0
+win,Sydney,Parramatta,15/08/2015,8,2014,win,1
+loose,Wests Tigers,Newcastle,15/08/2015,8,2014,win,0
+loose,Canberra,Manly Warringah,16/08/2015,8,2014,win,0
+win,Canterbury,Gold Coast Titans,16/08/2015,8,2014,loose,0
+loose,Cronulla,Melbourne,17/08/2015,8,2014,loose,1
+win,St George Illawarra,Penrith,20/08/2015,8,2014,win,1
+loose,South Sydney,Canterbury,21/08/2015,8,2014,win,0
+win,Cronulla,Wests Tigers,22/08/2015,8,2014,loose,0
+win,Sydney,Brisbane,22/08/2015,8,2014,win,1
+loose,Warriors,North Queensland,22/08/2015,8,2014,win,0
+win,Gold Coast Titans,Canberra,23/08/2015,8,2014,win,1
+loose,Manly Warringah,Parramatta,23/08/2015,8,2014,win,0
+loose,Melbourne,Newcastle,24/08/2015,8,2014,win,0
+loose,South Sydney,Brisbane,27/08/2015,8,2014,win,0
+loose,Manly Warringah,Sydney,28/08/2015,8,2014,loose,1
+win,Melbourne,North Queensland,29/08/2015,8,2014,loose,0
+loose,Newcastle,Canterbury,29/08/2015,8,2014,loose,1
+loose,Parramatta,Cronulla,29/08/2015,8,2014,loose,1
+win,Gold Coast Titans,St George Illawarra,30/08/2015,8,2014,win,1
+win,Wests Tigers,Warriors,30/08/2015,8,2014,win,1
+win,Canberra,Penrith,31/08/2015,8,2014,win,1
+loose,Brisbane,Melbourne,3/09/2015,9,2014,loose,1
+win,Sydney,South Sydney,4/09/2015,9,2014,loose,0
+win,North Queensland,Gold Coast Titans,5/09/2015,9,2014,loose,0
+win,Penrith,Newcastle,5/09/2015,9,2014,loose,0
+win,St George Illawarra,Wests Tigers,5/09/2015,9,2014,loose,0
+win,Canterbury,Warriors,6/09/2015,9,2014,win,1
+loose,Cronulla,Manly Warringah,6/09/2015,9,2014,loose,1
+loose,Parramatta,Canberra,6/09/2015,9,2014,loose,1
