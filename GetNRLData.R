@@ -177,6 +177,31 @@ month <- month(matchDates)
 matchStats_1<-data.frame(as.numeric(homeHalfScores),as.numeric(homeScrums),as.numeric(homePenalties),
                          as.numeric(awayHalfScores),as.numeric(awayScrums),as.numeric(awayPenalties))
 
+#write team names to file
+teamNames<-as.data.frame(unique(homeTeam))
+saveRDS(teamNames, "NRLTeams.rda")
+
+#TeamStats
+TeamStats<-data.frame(teamNames)
+
+for(i in 1:nrow(teamNames)){
+  
+  urlTeams<-gsub(" ","-",teamNames[i,1])
+  urlTeamStats<- gsub(" ","",paste("http://www.rugbyleagueproject.org/teams/",urlTeams,"/records.html",seq=""),fixed=TRUE)
+  doc <- htmlTreeParse(tolower(urlTeamStats), useInternal=TRUE)
+  stats<-readHTMLList(tolower(urlTeamStats))
+  competition <- data.frame(xpathSApply(doc, "//h3", xmlValue))
+  pos <- which(competition=="NRL")+4
+  TeamStats_tmp<-stats[[pos]]
+  
+  
+  
+}
+
+
+
+#outcome
+
 outcome <- NULL
 ties <- NULL
 countTies <- 1

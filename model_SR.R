@@ -86,6 +86,33 @@ predict_match <- function(homeTeam, awayTeam, month, year) {
     y_probs2 <- predict(model, newCase, type="prob")
     looseProb <- round((y_probs1[1] + y_probs2[2])/2,4)
     winProb <- round((y_probs1[2] + y_probs2[1])/2,4)
-    return(as.character(c(looseProb, winProb)))
+    if(looseProb>winProb) {
+      return ("loose")
+    } else if(looseProb<winProb) {
+      return ("win")
+    }else{
+      return ("tie")
+    }    
+#    return(as.character(c(looseProb, winProb)))
   }
+}
+
+predict_round <- function(filename){
+  
+  data_predict <- read.csv(file=filename,header=FALSE)
+  pred<-list()
+  
+  for(i in 1:nrow(data_predict)){
+    
+    home_Team <- data_predict[i,2]
+    away_Team <- data_predict[i,3]
+    m <- data_predict[i,4]
+    y <- data_predict[i,5]
+    
+    
+    pred<-append(pred,predict_match(home_Team,away_Team,m,y))
+  }
+  
+  write.csv(pred,file="R2015_SR_pred.csv")
+  
 }
