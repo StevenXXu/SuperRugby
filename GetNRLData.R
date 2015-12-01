@@ -183,6 +183,8 @@ saveRDS(teamNames, "NRLTeams.rda")
 
 #TeamStats
 TeamStats<-data.frame(teamNames)
+gameplayed<-NULL
+
 
 for(i in 1:nrow(teamNames)){
   
@@ -193,6 +195,7 @@ for(i in 1:nrow(teamNames)){
   competition <- data.frame(xpathSApply(doc, "//h3", xmlValue))
   pos <- which(competition=="NRL")+4
   TeamStats_tmp<-stats[[pos]]
+  
   
   
   
