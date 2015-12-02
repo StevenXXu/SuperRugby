@@ -4,18 +4,18 @@ library(randomForest)
 library(ROCR)
 
 # load data
-data <- readRDS("RWCData_Full.rda")
+data <- readRDS("NRLData.rda")
 
 set.seed(111)
 # create training and test set
-#testIndex <- seq(845,1017,1) 
+testIndex <- seq(1,as.integer(0.7 * nrow(data))) 
 #testIdex <- c(1:713)
-train <- data[1:1593,]  
-test <- data[1594:1685,]  
+train <- data[testIndex,]  
+test <- data[-testIndex,]  
 
 
 # tune Grid
-rfGrid <-  expand.grid(mtry = c(1, 5, 7, 14, 20, 25, 30, 35, 40, 45, 48, 51))
+rfGrid <-  expand.grid(mtry = c(2,7))
 
 
 # Tune using 5-fold cross-validation
@@ -39,4 +39,4 @@ plot(trperf,main="ROC Curve for Random Forest",col=2,lwd=2)
 abline(a=0,b=1,lwd=2,lty=2,col="gray")
 
 result <- data.frame(tr,test)
-write.csv(result,file="result.csv")
+write.csv(result,file="result_NRL.csv")

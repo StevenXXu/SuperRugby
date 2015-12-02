@@ -7,15 +7,15 @@ library(lubridate)
 model <- readRDS(file = "NRL_Prediction_Model.rda")
 
 ## Load predictors
-#teamStats <- readRDS(file="teamStats.rda")
-#teams <- readRDS("teamNames.rda")
+teamStats <- readRDS(file="NRLteamStats.rda")
+teams <- readRDS("NRLTeams.rda")
 
 ## Create a function to take team name inputs
 ## and then return a prediction for the match
 predict_match <- function(homeTeam, awayTeam, month, year) {
   
-  #homeIndex <- which(teams == homeTeam)
-  #awayIndex <- which(teams == awayTeam) 
+  homeIndex <- which(teams == homeTeam)
+  awayIndex <- which(teams == awayTeam) 
   
   #swap <- awayTeam == "England"
   
@@ -32,8 +32,8 @@ predict_match <- function(homeTeam, awayTeam, month, year) {
   #}
   
   
-  #homeTeamStats <- c(teamStats[[homeIndex]], rank[homeIndex], rankScore[homeIndex], rankChange[homeIndex])
-  #awayTeamStats <- c(teamStats[[awayIndex]], rank[awayIndex], rankScore[awayIndex], rankChange[awayIndex])
+  homeTeamStats <- teamStats[homeIndex,2:11]
+  awayTeamStats <- teamStats[awayIndex,2:11]
   
   date <- Sys.Date()
   #levelsx <- levels(factor(teams))
@@ -44,8 +44,8 @@ predict_match <- function(homeTeam, awayTeam, month, year) {
   newCase[1,6] <- date
   newCase[1,7] <- factor(month)
   newCase[1,8] <- factor(year)
-  #newCase[1,6:29] <- homeTeamStats
-  #newCase[1,30:53] <- awayTeamStats
+  #newCase[1,15:24] <- homeTeamStats
+  #newCase[1,25:34] <- awayTeamStats
   
   
   ## Use the model for prediction
@@ -59,10 +59,10 @@ predict_match <- function(homeTeam, awayTeam, month, year) {
     homeTeam <- awayTeam
     awayTeam <- temp
     
-    #homeTeamStats <- c(teamStats[[homeIndex]], rank[homeIndex], rankScore[homeIndex], rankChange[homeIndex])
-    #awayTeamStats <- c(teamStats[[awayIndex]], rank[awayIndex], rankScore[awayIndex], rankChange[awayIndex])
+    homeTeamStats <- teamStats[homeIndex,2:11]
+    awayTeamStats <- teamStats[awayIndex,2:11]
     
-    #date <- Sys.Date()
+    date <- Sys.Date()
     #levelsx <- levels(factor(teams))
     #levelsy <- levels(factor(c("loose","win")))
     newCase <- readRDS("newCase_NRL.rda")
@@ -71,28 +71,28 @@ predict_match <- function(homeTeam, awayTeam, month, year) {
     newCase[1,6] <- date
     newCase[1,7] <- factor(month)
     newCase[1,8] <- factor(year)
-    #newCase[1,6:29] <- homeTeamStats
-    #newCase[1,30:53] <- awayTeamStats
+    #newCase[1,15:24] <- homeTeamStats
+    #newCase[1,25:34] <- awayTeamStats
     
     y_probs2 <- predict(model, newCase, type="prob")
     looseProb <- round((y_probs1[1] + y_probs2[2])/2,4)
     winProb <- round((y_probs1[2] + y_probs2[1])/2,4)
     
-    if(looseProb>winProb) {
-      return ("loose")
-    } else if(looseProb<winProb) {
-      return ("win")
-    }else{
-      return ("tie")
-    }
+#    if(looseProb>winProb) {
+#      return ("loose")
+#    } else if(looseProb<winProb) {
+#      return ("win")
+#    }else{
+#      return ("tie")
+#    }
     
-    #return(as.character(c(looseProb, winProb)))
+    return(as.character(c(looseProb, winProb)))
   
 }
 
 predict_round <- function(filename){
   
-  data_predict <- read.csv(file=filename)
+  data_predict <- read.csv(file=filename, stringsAsFactors = FALSE)
   pred<-list()
   
   for(i in 1:nrow(data_predict)){

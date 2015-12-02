@@ -1,6 +1,7 @@
 library(XML)
 library(RCurl)
 library(lubridate)
+library(stringr)
 
 homeTeam<-NULL
 awayTeam<-NULL
@@ -41,7 +42,7 @@ urlSeasons <- gsub(" ","",temps[,1],fixed=TRUE)
 tempr<-sapply("round-", function(x) paste(x,seq(1,26,1),seq=""))
 urlRounds <- gsub(" ","",tempr[,1],fixed=TRUE)
 
-seasons_year<-seq(2005,2014,1)
+seasons_year<-seq(2005,2015,1)
 
 #http://www.rugbyleagueproject.org/seasons/nrl-2015/results.html
 urlMatchSummary <- gsub(" ","",paste(urlNRL,urlSeasons,"/results.html",seq=""),fixed=TRUE)
@@ -182,25 +183,49 @@ teamNames<-as.data.frame(unique(homeTeam))
 saveRDS(teamNames, "NRLTeams.rda")
 
 #TeamStats
-TeamStats<-data.frame(teamNames)
-gameplayed<-NULL
-
-
-for(i in 1:nrow(teamNames)){
-  
-  urlTeams<-gsub(" ","-",teamNames[i,1])
-  urlTeamStats<- gsub(" ","",paste("http://www.rugbyleagueproject.org/teams/",urlTeams,"/records.html",seq=""),fixed=TRUE)
-  doc <- htmlTreeParse(tolower(urlTeamStats), useInternal=TRUE)
-  stats<-readHTMLList(tolower(urlTeamStats))
-  competition <- data.frame(xpathSApply(doc, "//h3", xmlValue))
-  pos <- which(competition=="NRL")+4
-  TeamStats_tmp<-stats[[pos]]
-  
-  
-  
-  
-}
-
+#TeamStats<-data.frame(teamNames)
+# varList<-data.frame(Team=character(),GamePlayed=numeric(),GamesWon=numeric(),GamesLose=numeric(),GamesDraw=numeric(),TotalFor=numeric(),TotalAgainst=numeric(),TotalMargin=numeric(),AvgMargin=numeric(),AvgFor=numeric(),AvgAgainst=numeric(),stringsAsFactors = FALSE)
+# 
+# for(i in 1:length(teamNames[[1]])){
+#   
+#   stats<-NULL
+#   stats<-list()
+#   
+#   urlTeams<-gsub(" ","-",teamNames[i,1])
+#   urlTeamStats<- gsub(" ","",paste("http://www.rugbyleagueproject.org/teams/",urlTeams,"/records.html",seq=""),fixed=TRUE)
+#   doc <- htmlTreeParse(tolower(urlTeamStats), useInternal=TRUE)
+#   stats_1<-readHTMLList(tolower(urlTeamStats))
+#   competition <- data.frame(xpathSApply(doc, "//h3", xmlValue))
+#   pos <- which(competition=="NRL")+4
+#   TeamStats_tmp<-stats_1[[pos]]
+#  
+#   for(j in 1:6){
+#     
+#     if(!is.na(as.numeric(TeamStats_tmp[[j]]))){
+#       
+#       stats<-append(stats,as.numeric(TeamStats_tmp[[j]]))
+#     }
+#     else
+#     {  
+#       stats<-append(stats,as.numeric(gsub(",","",TeamStats_tmp[[j]])))
+#     }
+#     
+#     
+#   }
+#   
+#   stats<-append(stats,stats[[5]]-stats[[6]]) #margin
+#   stats<-append(stats,stats[[7]]/stats[[1]]) #margin_avg
+#   stats<-append(stats,stats[[5]]/stats[[1]]) #for_avg
+#   stats<-append(stats,stats[[6]]/stats[[1]]) #against_avg
+#   
+#   varList[i,]<-data.frame(teamNames[i,1],stats,stringsAsFactors=FALSE)
+#   
+#   
+#   
+#   
+# }
+# 
+# saveRDS(varList, file = "NRLteamStats.rda")
 
 
 #outcome
@@ -230,16 +255,39 @@ data<-data.frame(factor(outcome),homeTeam,awayTeam,as.numeric(homeScores),as.num
 #                  "AwayHalfScores","AwayScrums","AwayPenalties","AwayFullback","AwayWing1","AwayCenter1",
 #                  "AwayCenter2","AwayWing2","AwayFiveEighth","AwayHalfback")
 
-dataColNames <- c("Outcome","HomeTeam","AwayTeam","HomeScores","AwayScores","Date","Month","Year","HomeHalfScores","HomeScrums","HomePenalties",
-                  "AwayHalfScores","AwayScrums","AwayPenalties")
 
-colnames(data) <- dataColNames
 
 data<-subset(data,data[1]!="NA")
 data<-subset(data,data[10]!="NA")
 data<-subset(data,data[11]!="NA")
 data<-subset(data,data[13]!="NA")
 data<-subset(data,data[14]!="NA")
+
+# Add remaining variables
+# homeMat <- data.frame(GamePlayed=numeric(),GamesWon=numeric(),GamesLose=numeric(),GamesDraw=numeric(),TotalFor=numeric(),TotalAgainst=numeric(),TotalMargin=numeric(),AvgMargin=numeric(),AvgFor=numeric(),AvgAgainst=numeric(),stringsAsFactors = FALSE)
+# awayMat <- data.frame(GamePlayed=numeric(),GamesWon=numeric(),GamesLose=numeric(),GamesDraw=numeric(),TotalFor=numeric(),TotalAgainst=numeric(),TotalMargin=numeric(),AvgMargin=numeric(),AvgFor=numeric(),AvgAgainst=numeric(),stringsAsFactors = FALSE)
+# 
+# for(i in 1:nrow(data)){
+#   homeIndex <- which(teamNames[[1]] == data[i,2])
+#   awayIndex <- which(teamNames[[1]] == data[i,3])
+#   homeMat[i,] <- varList[homeIndex,2:11]
+#   awayMat[i,] <- varList[awayIndex,2:11]
+# }
+
+# Export data as csv file
+#extraData <- data.frame(cbind(homeMat, awayMat))
+#data <- data.frame(data, homeMat, awayMat)
+
+
+# dataColNames <- c("Outcome","HomeTeam","AwayTeam","HomeScores","AwayScores","Date","Month","Year","HomeHalfScores","HomeScrums","HomePenalties",
+#                   "AwayHalfScores","AwayScrums","AwayPenalties",
+#                   "HTGamePlayed","HTGamesWon","HTGamesLose","HTGamesDraw","HTTotalFor","HTTotalAgainst","HTTotalMargin","HTAvgMargin","HTAvgFor","HTAvgAgainst",
+#                   "ATGamePlayed","ATGamesWon","ATGamesLose","ATGamesDraw","ATTotalFor","ATTotalAgainst","ATTotalMargin","ATAvgMargin","ATAvgFor","ATAvgAgainst")
+dataColNames <- c("Outcome","HomeTeam","AwayTeam","HomeScores","AwayScores","Date","Month","Year","HomeHalfScores","HomeScrums","HomePenalties",
+                   "AwayHalfScores","AwayScrums","AwayPenalties")
+
+
+colnames(data) <- dataColNames
 
 # write data
 saveRDS(data[1,], "newCase_NRL.rda")
