@@ -292,3 +292,4 @@ colnames(data) <- dataColNames
 # write data
 saveRDS(data[1,], "newCase_NRL.rda")
 saveRDS(data, "NRLData.rda")
+write.csv(data,file="NRLData2005_2015.csv")

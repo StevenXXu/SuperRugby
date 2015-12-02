@@ -8,7 +8,7 @@ model <- readRDS(file = "NRL_Prediction_Model.rda")
 
 ## Load predictors
 teamStats <- readRDS(file="NRLteamStats.rda")
-teams <- readRDS("NRLTeams.rda")
+teams <- readRDS(file="NRLTeams.rda")
 
 ## Create a function to take team name inputs
 ## and then return a prediction for the match
@@ -32,8 +32,8 @@ predict_match <- function(homeTeam, awayTeam, month, year) {
   #}
   
   
-  homeTeamStats <- teamStats[homeIndex,2:11]
-  awayTeamStats <- teamStats[awayIndex,2:11]
+  homeTeamStats <- teamStats[homeIndex,3:5]
+  awayTeamStats <- teamStats[awayIndex,7:9]
   
   date <- Sys.Date()
   #levelsx <- levels(factor(teams))
@@ -44,8 +44,8 @@ predict_match <- function(homeTeam, awayTeam, month, year) {
   newCase[1,6] <- date
   newCase[1,7] <- factor(month)
   newCase[1,8] <- factor(year)
-  #newCase[1,15:24] <- homeTeamStats
-  #newCase[1,25:34] <- awayTeamStats
+  newCase[1,9:11] <- homeTeamStats
+  newCase[1,12:14] <- awayTeamStats
   
   
   ## Use the model for prediction
@@ -59,8 +59,8 @@ predict_match <- function(homeTeam, awayTeam, month, year) {
     homeTeam <- awayTeam
     awayTeam <- temp
     
-    homeTeamStats <- teamStats[homeIndex,2:11]
-    awayTeamStats <- teamStats[awayIndex,2:11]
+    homeTeamStats <- teamStats[homeIndex,3:5]
+    awayTeamStats <- teamStats[awayIndex,7:9]
     
     date <- Sys.Date()
     #levelsx <- levels(factor(teams))
@@ -71,22 +71,25 @@ predict_match <- function(homeTeam, awayTeam, month, year) {
     newCase[1,6] <- date
     newCase[1,7] <- factor(month)
     newCase[1,8] <- factor(year)
-    #newCase[1,15:24] <- homeTeamStats
-    #newCase[1,25:34] <- awayTeamStats
+    newCase[1,9:11] <- homeTeamStats
+    newCase[1,12:14] <- awayTeamStats
     
     y_probs2 <- predict(model, newCase, type="prob")
-    looseProb <- round((y_probs1[1] + y_probs2[2])/2,4)
-    winProb <- round((y_probs1[2] + y_probs2[1])/2,4)
+    looseProb <- round((y_probs1[1]*0.49 + y_probs2[2]*0.51)/2,4)
+    winProb <- round((y_probs1[2]*0.51 + y_probs2[1]*0.49)/2,4)
     
-#    if(looseProb>winProb) {
-#      return ("loose")
-#    } else if(looseProb<winProb) {
-#      return ("win")
-#    }else{
-#      return ("tie")
-#    }
+   #looseProb <- round(y_probs1[1],4)
+   #winProb <- round(y_probs1[2],4)    
     
-    return(as.character(c(looseProb, winProb)))
+   if(looseProb>winProb) {
+     return ("loose")
+   } else if(looseProb<winProb) {
+     return ("win")
+   }else{
+     return ("tie")
+   }
+    
+#    return(as.character(c(looseProb, winProb)))
   
 }
 

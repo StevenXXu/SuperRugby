@@ -8,7 +8,7 @@ data <- readRDS("NRLData.rda")
 
 set.seed(111)
 # create training and test set
-testIndex <- seq(1,as.integer(0.7 * nrow(data))) 
+testIndex <- seq(1,as.integer(0.9 * nrow(data))) 
 #testIdex <- c(1:713)
 train <- data[testIndex,]  
 test <- data[-testIndex,]  
